@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import './component_styles.css'
  
 export default function Create() {
   const [form, setForm] = useState({
@@ -43,11 +44,11 @@ export default function Create() {
   
   // This following section will display the form that takes the input from the user.
   return (
-    <div>
-      <h3>Create New Record</h3>
+    <div className="container">
+      <h3>Create New Booking</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Location</label>
           <input
             type="text"
             className="form-control"
@@ -57,7 +58,7 @@ export default function Create() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="position">Position</label>
+          <label htmlFor="position">Time</label>
           <input
             type="text"
             className="form-control"
@@ -77,7 +78,7 @@ export default function Create() {
               checked={form.level === "Intern"}
               onChange={(e) => updateForm({ level: e.target.value })}
             />
-            <label htmlFor="positionIntern" className="form-check-label">Intern</label>
+            <label htmlFor="positionIntern" className="form-check-label">1 Vaccine</label>
           </div>
           <div className="form-check form-check-inline">
             <input
@@ -89,7 +90,7 @@ export default function Create() {
               checked={form.level === "Junior"}
               onChange={(e) => updateForm({ level: e.target.value })}
             />
-            <label htmlFor="positionJunior" className="form-check-label">Junior</label>
+            <label htmlFor="positionJunior" className="form-check-label">2 Vaccine</label>
           </div>
           <div className="form-check form-check-inline">
             <input
@@ -101,14 +102,14 @@ export default function Create() {
               checked={form.level === "Senior"}
               onChange={(e) => updateForm({ level: e.target.value })}
             />
-            <label htmlFor="positionSenior" className="form-check-label">Senior</label>
+            <label htmlFor="positionSenior" className="form-check-label">Booster</label>
           </div>
         </div>
         <div className="form-group">
           <input
             type="submit"
-            value="Create person"
-            className="btn btn-primary"
+            value="Create Booking"
+            className="btn btn-primary book"
           />
         </div>
       </form>
