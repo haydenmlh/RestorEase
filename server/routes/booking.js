@@ -19,7 +19,7 @@ bookingRoutes.route("/booking").get(function (req, res) {
   let db_connect = dbo.getDb();  
   db_connect
     .collection("booking")
-    .find({})
+    .find()
     .toArray(function (err, result) {
       if (err) throw err;
       // console.log(result);
@@ -35,7 +35,7 @@ bookingRoutes.route("/booking/one_date").get(function (req, res) {
   let myquery = { date: req.body.date };
   db_connect
     .collection("booking")
-    .find({myquery})
+    .find(myquery)
     .toArray(function (err, result) {
       if (err) throw err;
       // console.log(result);
