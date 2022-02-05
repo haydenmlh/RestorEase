@@ -34,7 +34,7 @@ export default function RecordList() {
       }
 
       const records = await response.json();
-      console.log(records);
+      // console.log(records);
       setRecords(records);
     }
   
@@ -45,7 +45,7 @@ export default function RecordList() {
   
   // This method will delete a record
   async function deleteRecord(id) {
-    await fetch(`http://localhost:5000/${id}`, {
+    await fetch(`http://localhost:5000/record/${id}`, {
       method: "DELETE"
     });
   
