@@ -1,5 +1,6 @@
 # RestorEase
-MERN project to improve the experience of restaurant operators and diners
+
+MERN project to improve the experience of the barber booking system
 
 To run client:
 
