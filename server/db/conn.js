@@ -14,7 +14,7 @@ module.exports = {
       if (db)
       {
         _db = db.db("myFirstDatabase");
-        console.log("Successfully connected to MongoDB."); 
+        console.log("Successfully connected to MongoDB Atlas."); 
       }
       return callback(err);
          });
