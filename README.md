@@ -1,4 +1,4 @@
-# RestaurEase
+# RestorEase
 MERN project to improve the experience of restaurant operators and diners
 
 To run client:
