@@ -25,6 +25,11 @@ export default function Navbar() {
   
         <div className="navbar_buttons">
             <div className="nav-item">
+              <NavLink className="nav-link" to="/barbers">
+                Timings
+              </NavLink>
+            </div>
+            <div className="nav-item">
               <NavLink className="nav-link" to="/about">
                 About
               </NavLink>

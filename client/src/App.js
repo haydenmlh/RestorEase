@@ -11,6 +11,11 @@ import Edit from "./components/edit";
 import Create from "./components/create";
 import About from "./components/about";
 import Confirm from "./components/confirm";
+import Barber from "./components/barbers";
+import Julian from "./components/julian";
+import Kim from "./components/kim";
+import Lisa from "./components/lisa";
+import Mark from "./components/mark";
  
 const App = () => {
  return (
@@ -22,6 +27,11 @@ const App = () => {
        <Route path="/create" element={<Create />} />
        <Route path="/about" element={<About />} />
        <Route path="/confirm" element={<Confirm />} />
+       <Route path="/barbers" element={<Barber />} />
+       <Route path="/julian" element={<Julian />} />
+       <Route path="/kim" element={<Kim />} />
+       <Route path="/lisa" element={<Lisa />} />
+       <Route path="/mark" element={<Mark />} />
      </Routes>
    </div>
  );
