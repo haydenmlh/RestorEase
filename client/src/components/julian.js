@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './component_styles.css'
+import BookingList from "./bookingBarbers";
  
  
 export default function About() {
@@ -10,7 +11,7 @@ export default function About() {
     <div className="container">
         <div className="text about">
             <h3><span className="pink">Julian's</span> time slots</h3>
-            <p>INSERT TIMES HERE</p>
+            <BookingList barber="julian"></BookingList>
         </div>
     </div>
   );

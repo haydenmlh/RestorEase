@@ -19,16 +19,16 @@ const Record = (props) => (
   </tr>
 );
  
-export default function RecordList() {
+export default function RecordList(barber) {
   const [records, setRecords] = useState([]);
   
   // This method fetches the records from the database.
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://localhost:5000/record/`);
+      const response = await fetch("http://localhost:5000/record/");
   
       if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
+        const message = "An error occurred: ${response.statusText}";
         window.alert(message);
         return;
       }
@@ -45,7 +45,7 @@ export default function RecordList() {
   
   // This method will delete a record
   async function deleteRecord(id) {
-    await fetch(`http://localhost:5000/record/${id}`, {
+    await fetch("http://localhost:5000/record/${id}", {
       method: "DELETE"
     });
   
