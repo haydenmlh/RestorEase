@@ -167,8 +167,8 @@ bookingRoutes.route("/booking/update/:id").post(function (req, response) {
 });
 
 // This section will help you delete a record
-bookingRoutes.route("/booking/delete/:id").delete((req, response) => {
-  console.log("[DELETE] delete booking");
+bookingRoutes.route("/booking/delete").post((req, response) => {
+  console.log("[POST] delete booking");
   let db_connect = dbo.getDb();
   console.log(req.body);
   let myquery = { _id: ObjectId( req.body.id )};

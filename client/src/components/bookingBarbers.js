@@ -54,10 +54,13 @@ export default function BookingList(props) {
   // This method will delete a booking
   async function deleteBooking(param) {
     console.log(param);
-    const data = { id: param };
-    await fetch("http://localhost:5000/booking/delete/${id}", {
-      method: "DELETE",
-      body: JSON.stringify(data),
+    const iddata = { id: param };
+    await fetch("http://localhost:5000/booking/delete", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(iddata),
     });
   
     const newBookings = bookings.filter((el) => el._id !== param);
