@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useLocation } from "react-router-dom";
-
+import img from '../img/RestorEase.png'
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 
 
 function Info() {
+  
   const { state } = useLocation();
   console.log(state);
   return (
     <>
-    <p>Date: {state.date}</p>
-    <p>Time: {state.start_time}</p>
-    <p>Barber: {capitalizeFirstLetter(state.barber)}</p>
+    <h4>Date: {state.date}</h4>
+    <h4>Time: {state.start_time}</h4>
+    <h4>Barber: {capitalizeFirstLetter(state.barber)}</h4>
     </>
   )
 }
@@ -22,20 +24,15 @@ function capitalizeFirstLetter(string) {
 }
 
 export default function confirm() {
-  
   // This following section will display the table with the records of individuals.
   return (
-    <div className="container">
-      <div className="wrapper-container">
-          <div className="Test">
-            <h3>Thank You for helping your local businesses!</h3>
-            <p>Your booking has been sent.</p>
-            <h3>Booking Details:</h3>
-            <Info></Info>
-            <NavLink className="nav-link book btn" to="/">
-                Home
-            </NavLink>
-          </div>
+    <div className="confirmation-container">
+      <img src={img}></img>
+      <div className="confirmation">
+        <h3 className="confirmation-title">Thank you for supporting your local business!</h3>
+        <h4 className="confirmation-emailed">Your booking has been emailed to the barber.</h4>
+        <h4 className="confirmation-details-title">Booking Details:</h4>
+        <Info></Info>
       </div>
     </div>
   );

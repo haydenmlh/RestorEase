@@ -8,10 +8,10 @@ export default function Home() {
   
   // This following section will display the table with the records of individuals.
   return (
-    <div className="container">
+    <div className="home-container">
         <div className="text">
-            <h3>We help <span className="pink">Restore</span> your favourite businesses with <span className="pink">Ease</span></h3>
-            <p>At RestorEase, our goal is to make the transition back to in-person run more smoothly for small businesses. </p>
+            <h3>We help <span className="pink">Restore</span> our local barbers with <span className="pink">Ease</span></h3>
+            <p>With RestorEase, our goal is to allow bookings to be made more easily with barbershops, improving both the barber's and customer's experience.</p>
         </div>
         <img src={img}></img>
     </div>

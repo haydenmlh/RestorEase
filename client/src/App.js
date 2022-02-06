@@ -16,6 +16,7 @@ import Julian from "./components/julian";
 import Kim from "./components/kim";
 import Lisa from "./components/lisa";
 import Mark from "./components/mark";
+import toast, { Toaster } from 'react-hot-toast';
  
 const App = () => {
  return (
@@ -33,6 +34,7 @@ const App = () => {
        <Route path="/lisa" element={<Lisa />} />
        <Route path="/mark" element={<Mark />} />
      </Routes>
+     <Toaster />
    </div>
  );
 };

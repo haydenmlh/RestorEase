@@ -45,8 +45,11 @@ export default function RecordList(barber) {
   
   // This method will delete a record
   async function deleteRecord(id) {
+    console.log(id);
+    const data = { id: this.id };
     await fetch("http://localhost:5000/record/${id}", {
-      method: "DELETE"
+      method: "DELETE",
+      body: JSON.stringify(data),
     });
   
     const newRecords = records.filter((el) => el._id !== id);

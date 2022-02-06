@@ -8,9 +8,9 @@ export default function About() {
   
   // This following section will display the table with the records of individuals.
   return (
-    <div className="container">
-        <div className="text about">
-            <h3><span className="pink">Julian's</span> time slots</h3>
+    <div className="timing-container">
+        <div className="barber_bookings">
+            <h3><span className="pink">Julian's</span> bookings</h3>
             <BookingList barber="julian"></BookingList>
         </div>
     </div>

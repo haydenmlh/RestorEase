@@ -52,12 +52,15 @@ export default function BookingList(props) {
   }, [bookings.length]);
   
   // This method will delete a booking
-  async function deleteBooking(id) {
+  async function deleteBooking(param) {
+    console.log(param);
+    const data = { id: param };
     await fetch("http://localhost:5000/booking/delete/${id}", {
-      method: "DELETE"
+      method: "DELETE",
+      body: JSON.stringify(data),
     });
   
-    const newBookings = bookings.filter((el) => el._id !== id);
+    const newBookings = bookings.filter((el) => el._id !== param);
     setBookings(newBookings);
   }
   
@@ -76,18 +79,16 @@ export default function BookingList(props) {
   
   // This following section will display the table with the bookings of individuals.
   return (
-    <div className="container">
-        <table className="table table-striped" style={{ marginTop: 20 }}>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Client Name</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>{bookingList()}</tbody>
-        </table>
-    </div>
+    <table className="table table-striped" style={{ marginTop: 20 }}>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Client Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>{bookingList()}</tbody>
+    </table>
   );
 }

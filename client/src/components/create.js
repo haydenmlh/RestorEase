@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './component_styles.css';
+import toast, { Toaster } from 'react-hot-toast';
  
 export default function Create() {
   const [form, setForm] = useState({
@@ -78,14 +79,27 @@ export default function Create() {
     return result;
   }
 
+
   // This function will handle the submission.
   async function onSubmit(e) {
     e.preventDefault();
+
+    
+
   
     // When a post request is sent to the create url, we'll add a new record to the database.
     const newPerson = { ...form };
     delete newPerson['fulldate'];
     console.log(newPerson);
+    
+    const myRe = /^(\d{4}-\d{2}-\d{2})$/;
+    
+    if (!myRe.test(newPerson.date)) {
+      toast.error("Please select a valid date / time.");
+      return;
+    }
+
+    let duplicate = 0;
     await fetch("http://localhost:5000/booking/add", {
       method: "POST",
       headers: {
@@ -100,12 +114,20 @@ export default function Create() {
     .then(function(response) {
       console.log(response.status);
       if (!response.ok) {
-        window.alert("Existing record with same date and time for this barber found.")
-        return;
+        toast.error("Existing record with same date and time for this barber found. Please re-enter.");
+        duplicate = 1;
       }
     });
     
-    setForm({ name: "", position: "", level: "" });
+    setForm({ fulldate: new Date(),
+      date: "",
+      start_time: "",
+      client_username: "",
+      barber_email: "" });
+    if (duplicate) {
+      return;
+    }
+    toast.success("Booking success!");
     navigate("/confirm", {state: newPerson});
   }
 
@@ -113,7 +135,7 @@ export default function Create() {
   
   // This following section will display the form that takes the input from the user.
   return (
-    <div className="container">
+    <div className="timing-container">
       <div className="booking">
         <h3>Create New Booking</h3>
         <form onSubmit={onSubmit}>

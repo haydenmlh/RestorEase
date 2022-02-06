@@ -1,4 +1,4 @@
-nav {
+.nav_div {
     background-color: #4C08BC;
     display: flex;
     justify-content: space-between;
@@ -90,7 +90,7 @@ h3 {
 
 .navbar_buttons {
     display: flex;
-    margin: 0 10px 0 0;
+    margin: 0 30px 0 0;
 }
 
 .nav_div {
@@ -102,8 +102,8 @@ h3 {
 }
 
 .booking {
-    width: 50vw;
-    height: 70vh;
+    width: 75vw;
+    margin: 40px 0 0 0;
 }
 
 .booking form {
@@ -117,15 +117,19 @@ h3 {
 .list ul{
     text-decoration: none;
     display: flex;
-    margin: 10px;
+    margin: 10px 10px 10px 0;
     padding: 0;
-    justify-content: space-around;
+    justify-content:flex-start;
 }
 
 .list ul li{
     text-decoration: none;
     display: inline;
-    margin: 40px;
+    margin: 10px;
+}
+
+.list ul li.first{
+  margin: 10px 10px 10px 0;
 }
 
 .btn {
@@ -136,8 +140,9 @@ h3 {
     margin: 0 20px;
 }
 
-table {
-    height: 100%;
+
+tr {
+  height: 20px;
 }
 
 th {
@@ -180,4 +185,104 @@ td {
     .text {
         width: 70vw;
     }
+}
+
+.barber_bookings {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 50px 0 0 0;
+}
+
+.confirmation-container {
+  margin: 0 30px;
+  background-color: #2B0074;
+  height: 90vh;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmation-container img{
+  height: 200px;
+  width: 200px;
+  margin: 40px 0 0 0;
+}
+
+.confirmation {
+  margin: 40px;
+}
+
+.confirmation h4{
+  font-weight: 400;
+}
+
+.confirmation-emailed {
+  margin: 0 0 30px 0;
+}
+
+.confirmation-details-title {
+  font-size: 36px;
+  margin: 0 0 20px 0;
+}
+
+.timing-container {
+  margin: 0 30px;
+  background-color: #2B0074;
+  height: 90vh;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-container {
+  margin: 0 30px;
+  background-color: #2B0074;
+  height: 90vh;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.barber-timings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.barber-timings h4 {
+  display:inline;
+  font-weight: 400;
+}
+
+.barber-buttons-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.barber-buttons {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+  background-color: #E08787;
+  border-color: #E08787;
+  border-radius: 10px;
+  margin: 10px 20px;
+}
+
+.barber-buttons:hover {
+  background-color: #E14646;
+  border-color: #E14646;
+  color: #ffffff;
 }
