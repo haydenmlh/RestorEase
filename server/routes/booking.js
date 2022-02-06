@@ -86,7 +86,8 @@ bookingRoutes.route("/booking/update/:id").post(function (req, response) {
       start_time: req.body.start_time,
       end_time: req.body.end_time,
       client_username: req.body.client_username,
-      barber: req.body.barber
+      barber: req.body.barber,
+      barber_email: req.body.barber_email
     },
   };
   db_connect
