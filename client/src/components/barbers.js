@@ -10,7 +10,7 @@ export default function Barber() {
     <div className="container">
       <div className="booking">
         <h3>Select A Barber to see their times</h3>
-          <div className="form-group">
+          <div className="form-group list">
             <ul>
                 <li>
                     <NavLink className="nav-link book" to="/julian">
