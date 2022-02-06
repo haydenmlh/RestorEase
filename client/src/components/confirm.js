@@ -1,8 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
+
+
+function Info() {
+  const { state } = useLocation();
+  console.log(state);
+  return (
+    <>
+    <p>Date: {state.date}</p>
+    <p>Time: {state.start_time}</p>
+    <p>Barber: {capitalizeFirstLetter(state.barber)}</p>
+    </>
+  )
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 export default function confirm() {
   
@@ -14,7 +31,7 @@ export default function confirm() {
             <h3>Thank You for helping your local businesses!</h3>
             <p>Your booking has been sent.</p>
             <h3>Booking Details:</h3>
-            <p>INSERT BOOKING INFO</p>
+            <Info></Info>
             <NavLink className="nav-link book btn" to="/">
                 Home
             </NavLink>

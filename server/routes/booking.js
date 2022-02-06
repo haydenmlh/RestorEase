@@ -27,6 +27,20 @@ bookingRoutes.route("/booking").get(function (req, res) {
     });
 });
 
+bookingRoutes.route("/booking/barber").get(function (req, res) {
+  console.log("[GET] all bookings one barber");
+  let db_connect = dbo.getDb();
+  let myquery = { barber: req.body.barber };
+  db_connect
+    .collection("booking")
+    .find(myquery)
+    .toArray(function (err, result) {
+      if (err) throw err;
+      // console.log(result);
+      res.json(result);
+    });
+});
+
 // This section will get a list of all the bookings on a single date for a 
 // single barber.
 bookingRoutes.route("/booking/one_date").get(function (req, res) {

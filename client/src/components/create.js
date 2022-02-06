@@ -7,7 +7,7 @@ import './component_styles.css';
 export default function Create() {
   const [form, setForm] = useState({
     fulldate: new Date(),
-    date: new Date(),
+    date: "",
     start_time: "",
     client_username: "",
     barber: "julian",
@@ -31,7 +31,7 @@ export default function Create() {
     });
   }
 
-  function updateDate(e:Date) {
+  function updateDate(e) {
     updateForm({ fulldate: e});
     let curMonth = e.getMonth() + 1;
     let month;
@@ -66,8 +66,6 @@ export default function Create() {
     updateForm({start_time: hour + ":" + minute})
   }
 
-
-  
   function addDays(date, days) {
     var result = new Date(date);
     result.setDate(result.getDate() + days);
@@ -86,7 +84,7 @@ export default function Create() {
   
     // When a post request is sent to the create url, we'll add a new record to the database.
     const newPerson = { ...form };
-
+    delete newPerson['fulldate'];
     console.log(newPerson);
     
     await fetch("http://localhost:5000/booking/add", {
@@ -99,10 +97,14 @@ export default function Create() {
     .catch(error => {
       window.alert(error);
       return;
+    })
+    .then(function(response) {
+      console.log(response.status);
+
     });
-  
+    
     setForm({ name: "", position: "", level: "" });
-    navigate("/");
+    navigate("/confirm", {state: newPerson});
   }
 
 
