@@ -27,6 +27,7 @@ bookingRoutes.route("/booking").get(function (req, res) {
     });
 });
 
+// This section will get a list of all the bookings for a single barber.
 bookingRoutes.route("/booking/barber").post(function (req, res) {
   console.log("[POST] all bookings one barber");
   let db_connect = dbo.getDb();
@@ -82,6 +83,20 @@ bookingRoutes.route("/booking/add").post(function (req, response) {
     client_username: req.body.client_username,
     barber: req.body.barber
   };
+  let mySearch = {
+    date: req.body.date,
+    start_time: req.body.start_time,
+    barber: req.body.barber
+  }
+  db_connect.collection("booking").find(mySearch).toArray(function(err, result) {
+    console.log(result);
+    if (result) {
+      console.log("Existing record with same date and time for this barber found.");
+      response.status(400);
+      return;
+    }
+  })
+  
   // console.log(req.body)
   // console.log(req.body.name);
   db_connect.collection("booking").insertOne(myobj, function (err, res) {
@@ -89,6 +104,8 @@ bookingRoutes.route("/booking/add").post(function (req, response) {
     response.json(res);
   });
 });
+
+
 
 // This section will help you update a record by id.
 bookingRoutes.route("/booking/update/:id").post(function (req, response) {

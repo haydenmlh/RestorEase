@@ -86,7 +86,6 @@ export default function Create() {
     const newPerson = { ...form };
     delete newPerson['fulldate'];
     console.log(newPerson);
-    
     await fetch("http://localhost:5000/booking/add", {
       method: "POST",
       headers: {
@@ -100,7 +99,10 @@ export default function Create() {
     })
     .then(function(response) {
       console.log(response.status);
-
+      if (!response.ok) {
+        window.alert("Existing record with same date and time for this barber found.")
+        return;
+      }
     });
     
     setForm({ name: "", position: "", level: "" });
@@ -142,7 +144,7 @@ export default function Create() {
               minTime={startTime}
               maxTime={endTime}
               includeDateIntervals={[{start: subDays(new Date(), 1), end: addDays(new Date(), 14)}]}
-              dateFormat="MMMM d, yyyy h:mm aa"
+              dateFormat="MMM d, yyyy h:mm aa"
               onChange={updateDate} 
               id="date"/>
           </div>
