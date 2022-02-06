@@ -38,6 +38,10 @@ nav {
     border-radius: 10px;
 }
 
+.btn {
+    width: 100px;
+}
+
 .book:hover{
     background-color: #E14646 !important;
 }

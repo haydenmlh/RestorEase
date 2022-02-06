@@ -10,6 +10,7 @@ import Home from "./components/home";
 import Edit from "./components/edit";
 import Create from "./components/create";
 import About from "./components/about";
+import Confirm from "./components/confirm";
  
 const App = () => {
  return (
@@ -20,6 +21,7 @@ const App = () => {
        <Route path="/edit/:id" element={<Edit />} />
        <Route path="/create" element={<Create />} />
        <Route path="/about" element={<About />} />
+       <Route path="/confirm" element={<Confirm />} />
      </Routes>
    </div>
  );
