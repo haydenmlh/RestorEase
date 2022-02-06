@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 import './component_styles.css';
+import GoogleMap from './GoogleMap';
  
 export default function Barber() {
   
@@ -29,7 +30,10 @@ export default function Barber() {
           </NavLink>
             
             
-        </div>
+        </div>      
+      </div>
+      <div className="map">
+          <GoogleMap />
       </div>
     </div>
   );

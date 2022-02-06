@@ -1,21 +1,18 @@
 .nav_div {
-    background-color: #4C08BC;
-    display: flex;
-    justify-content: space-between;
-    height: 10vh;
+  background-color: #4c08bc;
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
 }
-
-
 
 .links {
-    justify-content: right;
+  justify-content: right;
 }
 
-.nav-link{
-    color: #ffffff !important;
-    font-size: 20px;
+.nav-link {
+  color: #ffffff !important;
+  font-size: 20px;
 }
-
 
 .logo_button {
   display: flex;
@@ -24,167 +21,171 @@
 }
 
 .logo_text {
-    margin: 0 10px;
-    color: #E49393;
+  margin: 0 10px;
+  color: #e49393;
 }
 
 .item {
-    margin: 0 30px;
+  margin: 0 30px;
 }
 
 .book {
-    background-color: #E08787 !important;
-    border-color: #E08787 !important;
-    border-radius: 10px;
+  background-color: #e08787 !important;
+  border-color: #e08787 !important;
+  border-radius: 10px;
 }
 
 .btn {
-    width: 100px;
+  width: 100px;
 }
 
-.book:hover{
-    background-color: #E14646 !important;
+.book:hover {
+  background-color: #e14646 !important;
 }
 
 body {
-    background-color: #1E0843 !important;
+  background-color: #1e0843 !important;
 }
 
-img{
-    width: 25vw;
+img {
+  width: 25vw;
 }
 
 .container {
-    margin: 0;
-    background-color: #2B0074;
-    height: 90vh;
-    color: #ffffff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+  margin: 0;
+  background-color: #2b0074;
+  height: 90vh;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.map {
+  margin-top: 5vh;
+  width: 50vw;
+  color: black;
 }
 
 .text {
-    width: 25vw;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    font-size: 30px;
+  width: 25vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 30px;
 }
 
 .about {
-    width: 90%;
-    height: 90%;
-    font-size: 25px;
+  width: 90%;
+  height: 90%;
+  font-size: 25px;
 }
 
 h3 {
-    font-size: 50px !important;
+  font-size: 50px !important;
 }
 
 .pink {
-    color: #E49393;
+  color: #e49393;
 }
 
 .navbar_buttons {
-    display: flex;
-    margin: 0 30px 0 0;
+  display: flex;
+  margin: 0 30px 0 0;
 }
 
 .nav_div {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    background-color: #4C08BC;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #4c08bc;
+  align-items: center;
 }
 
 .booking {
-    width: 75vw;
-    margin: 40px 0 0 0;
+  width: 75vw;
+  margin: 40px 0 0 0;
 }
 
 .booking form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 50vh;
-    font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50vh;
+  font-size: 25px;
 }
 
-.list ul{
-    text-decoration: none;
-    display: flex;
-    margin: 10px 10px 10px 0;
-    padding: 0;
-    justify-content:flex-start;
+.list ul {
+  text-decoration: none;
+  display: flex;
+  margin: 10px 10px 10px 0;
+  padding: 0;
+  justify-content: flex-start;
 }
 
-.list ul li{
-    text-decoration: none;
-    display: inline;
-    margin: 10px;
+.list ul li {
+  text-decoration: none;
+  display: inline;
+  margin: 10px;
 }
 
-.list ul li.first{
+.list ul li.first {
   margin: 10px 10px 10px 0;
 }
 
 .btn {
-    width: 150px;
+  width: 150px;
 }
 
 #barber {
-    margin: 0 20px;
+  margin: 0 20px;
 }
-
 
 tr {
   height: 20px;
 }
 
 th {
-    color: #ffffff;
+  color: #ffffff;
 }
 
-
 tbody {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 td {
-    color: #ffffff !important;
+  color: #ffffff !important;
 }
 
 @media screen and (max-width: 1200px) {
-    h3 {
-        font-size: 40px !important;
-    }
-    .text {
-        font-size: 20px;
-    }
+  h3 {
+    font-size: 40px !important;
+  }
+  .text {
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .container {
-        flex-direction: column;
-    }
-    .text {
-        width: 80vw;
-        font-size: 15px;
-    }
-    
-    img{
-        width: 50vw;
-    }
+  .container {
+    flex-direction: column;
+  }
+  .text {
+    width: 80vw;
+    font-size: 15px;
+  }
+
+  img {
+    width: 50vw;
+  }
 }
 
 @media screen and (max-width: 500px) {
-    .text {
-        width: 70vw;
-    }
+  .text {
+    width: 70vw;
+  }
 }
 
 .barber_bookings {
@@ -198,7 +199,7 @@ td {
 
 .confirmation-container {
   margin: 0 30px;
-  background-color: #2B0074;
+  background-color: #2b0074;
   height: 90vh;
   color: #ffffff;
   display: flex;
@@ -206,7 +207,7 @@ td {
   align-items: center;
 }
 
-.confirmation-container img{
+.confirmation-container img {
   height: 200px;
   width: 200px;
   margin: 40px 0 0 0;
@@ -216,7 +217,7 @@ td {
   margin: 40px;
 }
 
-.confirmation h4{
+.confirmation h4 {
   font-weight: 400;
 }
 
@@ -231,7 +232,7 @@ td {
 
 .timing-container {
   margin: 0 30px;
-  background-color: #2B0074;
+  background-color: #2b0074;
   height: 90vh;
   color: #ffffff;
   display: flex;
@@ -241,7 +242,7 @@ td {
 
 .home-container {
   margin: 0 30px;
-  background-color: #2B0074;
+  background-color: #2b0074;
   height: 90vh;
   color: #ffffff;
   display: flex;
@@ -260,7 +261,7 @@ td {
 }
 
 .barber-timings h4 {
-  display:inline;
+  display: inline;
   font-weight: 400;
 }
 
@@ -275,14 +276,14 @@ td {
   text-decoration: none;
   color: #ffffff;
   font-size: 20px;
-  background-color: #E08787;
-  border-color: #E08787;
+  background-color: #e08787;
+  border-color: #e08787;
   border-radius: 10px;
   margin: 10px 20px;
 }
 
 .barber-buttons:hover {
-  background-color: #E14646;
-  border-color: #E14646;
+  background-color: #e14646;
+  border-color: #e14646;
   color: #ffffff;
 }
