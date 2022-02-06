@@ -77,8 +77,6 @@ export default function BookingList(props) {
   // This following section will display the table with the bookings of individuals.
   return (
     <div className="container">
-      <div className="wrapper-container">
-        <h3>Booking List</h3>
         <table className="table table-striped" style={{ marginTop: 20 }}>
           <thead>
             <tr>
@@ -90,7 +88,6 @@ export default function BookingList(props) {
           </thead>
           <tbody>{bookingList()}</tbody>
         </table>
-      </div>
     </div>
   );
 }
