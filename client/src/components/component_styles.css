@@ -83,3 +83,16 @@ h3 {
 .pink {
     color: #E49393;
 }
+
+.navbar_buttons {
+    display: flex;
+    margin: 0 10px 0 0;
+}
+
+.nav_div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #4C08BC;
+    align-items: center;
+}
