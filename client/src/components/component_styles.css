@@ -5,6 +5,8 @@ nav {
     height: 10vh;
 }
 
+
+
 .links {
     justify-content: right;
 }
@@ -14,8 +16,15 @@ nav {
     font-size: 20px;
 }
 
-.logo {
-    margin: 0 40px;
+
+.logo_button {
+  display: flex;
+  margin: 0 20px;
+  align-items: center;
+}
+
+.logo_text {
+    margin: 0 10px;
     color: #E49393;
 }
 
