@@ -1,22 +1,85 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import './component_styles.css'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import './component_styles.css';
  
 export default function Create() {
   const [form, setForm] = useState({
-    name: "",
-    position: "",
-    level: "",
+    fulldate: new Date(),
+    date: new Date(),
+    start_time: "",
+    client_username: "",
+    barber: "julian",
+    barber_email: ""
   });
   const navigate = useNavigate();
   
+  let startTime = new Date();
+  startTime.setHours(9);
+  startTime.setMinutes(0);
+
+  let endTime = new Date();
+  endTime.setHours(16);
+  endTime.setMinutes(0);
+
   // These methods will update the state properties.
   function updateForm(value) {
+    console.log(value);
     return setForm((prev) => {
       return { ...prev, ...value };
     });
   }
+
+  function updateDate(e:Date) {
+    updateForm({ fulldate: e});
+    let curMonth = e.getMonth() + 1;
+    let month;
+    let date;
+    if (curMonth < 10) {
+      month = '0' + curMonth.toString();
+    } else {
+      month = curMonth.toString();
+    }
+    let curDate = e.getDate();
+    if (curDate < 10) {
+      date = '0' + curDate.toString();
+    } else {
+      date = curDate.toString();
+    }
+    updateForm({ date: e.getFullYear() + "-" + month + "-" + date});
+
+    let curHour = e.getHours();
+    let curMinute = e.getMinutes();
+    let hour;
+    let minute;
+    if (curHour < 10) {
+      hour = '0' + curHour.toString();
+    } else {
+      hour = curHour.toString();
+    }
+    if (curMinute < 10) {
+      minute = '0' + curMinute.toString();
+    } else {
+      minute = curMinute.toString();
+    }
+    updateForm({start_time: hour + ":" + minute})
+  }
+
+
   
+  function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+
+  function subDays(date, days) {
+    var result = new Date(date);
+    result.setHours(result.getDate() - days);
+    return result;
+  }
+
   // This function will handle the submission.
   async function onSubmit(e) {
     e.preventDefault();
@@ -26,7 +89,7 @@ export default function Create() {
 
     console.log(newPerson);
     
-    await fetch("http://localhost:5000/record/add", {
+    await fetch("http://localhost:5000/booking/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,6 +104,8 @@ export default function Create() {
     setForm({ name: "", position: "", level: "" });
     navigate("/");
   }
+
+
   
   // This following section will display the form that takes the input from the user.
   return (
@@ -48,62 +113,44 @@ export default function Create() {
       <h3>Create New Booking</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Location</label>
-          <input
+          <label htmlFor="barber">Barber</label>
+          <select id="barber" name="barber"
+          onChange={(e) => updateForm({ barber: e.target.value})}>
+            <option value="julian">Julian</option>
+            <option value="kim">Kim</option>
+            <option value="lisa">Lisa</option>
+            <option value="mark">Mark</option>
+          </select>
+
+          {/* <input
             type="text"
             className="form-control"
-            id="name"
+            id="barber"
             value={form.name}
-            onChange={(e) => updateForm({ name: e.target.value })}
-          />
+            onChange={(e) => updateForm({ barber: e.target.value })}
+          /> */}
         </div>
+
         <div className="form-group">
-          <label htmlFor="position">Time</label>
+          <DatePicker 
+            selected={form.fulldate} 
+            showTimeSelect
+            minTime={startTime}
+            maxTime={endTime}
+            includeDateIntervals={[{start: subDays(new Date(), 1), end: addDays(new Date(), 14)}]}
+            dateFormat="MMMM d, yyyy h:mm aa"
+            onChange={updateDate} />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="client_username">Name</label>
           <input
             type="text"
             className="form-control"
-            id="position"
-            value={form.position}
-            onChange={(e) => updateForm({ position: e.target.value })}
+            id="client_username"
+            value={form.client_username}
+            onChange={(e) => updateForm({ client_username: e.target.value })}
           />
-        </div>
-        <div className="form-group">
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="positionOptions"
-              id="positionIntern"
-              value="Intern"
-              checked={form.level === "Intern"}
-              onChange={(e) => updateForm({ level: e.target.value })}
-            />
-            <label htmlFor="positionIntern" className="form-check-label">1 Vaccine</label>
-          </div>
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="positionOptions"
-              id="positionJunior"
-              value="Junior"
-              checked={form.level === "Junior"}
-              onChange={(e) => updateForm({ level: e.target.value })}
-            />
-            <label htmlFor="positionJunior" className="form-check-label">2 Vaccine</label>
-          </div>
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="positionOptions"
-              id="positionSenior"
-              value="Senior"
-              checked={form.level === "Senior"}
-              onChange={(e) => updateForm({ level: e.target.value })}
-            />
-            <label htmlFor="positionSenior" className="form-check-label">Booster</label>
-          </div>
         </div>
         <div className="form-group">
           <input
