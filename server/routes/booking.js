@@ -74,14 +74,30 @@ bookingRoutes.route("/booking/:id").get(function (req, res) {
 
 // This section will help you create a new record.
 bookingRoutes.route("/booking/add").post(function (req, response) {
-  console.log("[POST] add booking");
-  let db_connect = dbo.getDb();
-  let myobj = {
-    date: req.body.date,
-    start_time: req.body.start_time,
-    client_username: req.body.client_username,
-    barber: req.body.barber
+  
+  const nodemailer = require('nodemailer');
+
+  let transport = nodemailer.createTransport({
+    host: "smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+      user: "53f7cb2c1f02e4",
+      pass: "5b58a1d7969710"
+    }
+  });
+  const message = {
+    from: 'restorease@gmail.com', // Sender address
+    to: 'bussiness@gmail.com',         // List of recipients
+    subject: 'NEW BOOKING', // Subject line
+    text: 'This is an automated email to notify the receiver a new booking has been requested.' // Plain text body
   };
+  transport.sendMail(message, function(err, info) {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log(info);
+      }
+  });
   // console.log(req.body)
   // console.log(req.body.name);
   db_connect.collection("booking").insertOne(myobj, function (err, res) {
