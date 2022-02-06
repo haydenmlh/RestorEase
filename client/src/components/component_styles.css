@@ -100,3 +100,53 @@ h3 {
     background-color: #4C08BC;
     align-items: center;
 }
+
+.booking {
+    width: 50vw;
+    height: 70vh;
+}
+
+.booking form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50vh;
+    font-size: 25px;
+}
+
+.btn {
+    width: 150px;
+}
+
+#barber {
+    margin: 0 20px;
+}
+
+@media screen and (max-width: 1200px) {
+    h3 {
+        font-size: 40px !important;
+    }
+    .text {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+    .text {
+        width: 80vw;
+        font-size: 15px;
+    }
+    
+    img{
+        width: 50vw;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .text {
+        width: 70vw;
+    }
+}

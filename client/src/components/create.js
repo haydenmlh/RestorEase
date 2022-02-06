@@ -112,56 +112,60 @@ export default function Create() {
   // This following section will display the form that takes the input from the user.
   return (
     <div className="container">
-      <h3>Create New Booking</h3>
-      <form onSubmit={onSubmit}>
-        <div className="form-group">
-          <label htmlFor="barber">Barber</label>
-          <select id="barber" name="barber"
-          onChange={(e) => updateForm({ barber: e.target.value})}>
-            <option value="julian">Julian</option>
-            <option value="kim">Kim</option>
-            <option value="lisa">Lisa</option>
-            <option value="mark">Mark</option>
-          </select>
+      <div className="booking">
+        <h3>Create New Booking</h3>
+        <form onSubmit={onSubmit}>
+          <div className="form-group">
+            <label htmlFor="barber">Barber:</label>
+            <select id="barber" name="barber"
+            onChange={(e) => updateForm({ barber: e.target.value})}>
+              <option value="julian">Julian</option>
+              <option value="kim">Kim</option>
+              <option value="lisa">Lisa</option>
+              <option value="mark">Mark</option>
+            </select>
 
-          {/* <input
-            type="text"
-            className="form-control"
-            id="barber"
-            value={form.name}
-            onChange={(e) => updateForm({ barber: e.target.value })}
-          /> */}
-        </div>
+            {/* <input
+              type="text"
+              className="form-control"
+              id="barber"
+              value={form.name}
+              onChange={(e) => updateForm({ barber: e.target.value })}
+            /> */}
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="date">Date</label>
+            <DatePicker 
+              selected={form.fulldate} 
+              showTimeSelect
+              minTime={startTime}
+              maxTime={endTime}
+              includeDateIntervals={[{start: subDays(new Date(), 1), end: addDays(new Date(), 14)}]}
+              dateFormat="MMMM d, yyyy h:mm aa"
+              onChange={updateDate} 
+              id="date"/>
+          </div>
 
-        <div className="form-group">
-          <DatePicker 
-            selected={form.fulldate} 
-            showTimeSelect
-            minTime={startTime}
-            maxTime={endTime}
-            includeDateIntervals={[{start: subDays(new Date(), 1), end: addDays(new Date(), 14)}]}
-            dateFormat="MMMM d, yyyy h:mm aa"
-            onChange={updateDate} />
+          <div className="form-group">
+            <label htmlFor="client_username">Client Name</label>
+            <input
+              type="text"
+              className="form-control"
+              id="client_username"
+              value={form.client_username}
+              onChange={(e) => updateForm({ client_username: e.target.value })}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="submit"
+              value="Create Booking"
+              className="btn btn-primary book btn"
+            />
+          </div>
+        </form>
         </div>
-
-        <div className="form-group">
-          <label htmlFor="client_username">Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="client_username"
-            value={form.client_username}
-            onChange={(e) => updateForm({ client_username: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="submit"
-            value="Create Booking"
-            className="btn btn-primary book"
-          />
-        </div>
-      </form>
     </div>
   );
 }
